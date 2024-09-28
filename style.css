@@ -32,8 +32,8 @@ nav a:hover {
 /* Hero Section */
 .hero {
   background: url('https://raw.githubusercontent.com/biggr281/mycuriositea.io/main/Screenshot_28-9-2024_114358_photos.google.com.jpeg');
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: bottom center;
   height: 300px;
   color: #fff;
   display: flex;
