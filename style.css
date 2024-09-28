@@ -32,7 +32,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
   background: url('https://raw.githubusercontent.com/biggr281/mycuriositea.io/main/Screenshot_27-9-2024_22025_photos.google.com.jpeg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 300px;
   color: #fff;
