@@ -22,25 +22,36 @@
   <main>
     <section>
       <div class="card">
-        <h3>Projects</h3>
+        <h3><a href="projects.html">Projects</a></h3>
         <p>A collection of projects from across the internet that I follow</p>
       </div>
       <div class="card">
-        <h3>Blog Entries</h3>
+        <h3><a href="blog.html">Blog Entries</a></h3>
         <p>A collection of things that I have found interesting and decided to write down some thoughts about.</p>
       </div>
-      <a href="about.html" style="text-decoration: none;">
-        <div class="card">
-          <h3>About Me</h3>
-          <p>Just a little bit of information about myself.</p>
-        </div>
+      <div class="card">
+      	<h3><a href="about.html">About Me</a></h3>
+      	<p>Just a little bit of information about myself.</p>
+      </div>
+      <div class="card">
+      	<h3><a href="resources.html">Tools and Resources</a></h3>
+      	<p>Useful and exercises that I have found across the web.</p>
+      </div>
+
       </a>
     </section>
   </main>
 
   <footer>
-    <p>Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</p>
-  </footer>
+            <button onclick="redirectToYouTube()" style="background:none;border:none;color:#000;text-decoration:underline;cursor:pointer;">
+                Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.
+            </button>
+        </footer>
+  <script>
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/watch?v=0hG-2tQtdlE";
+        }
+    </script>
 
 </body>
 </html>
