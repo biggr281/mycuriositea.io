@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity &amp; Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity &amp; Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+  
+  <main>
+<div class="container">
+    <div class="content">
+        <h2>My First Project: GrapheneOS</h2>
+        <p>
+            One of the first things I did after studying the basics was to get some hands-on experience with a privacy and security-centric operating system: <strong>GrapheneOS</strong>. After setting it up myself, I decided to offer de-googling services for devices to others in my community, advertising through a local online marketplace. Below is a walkthrough that I follow, along with some settings that I prefer based on my experience and research, to make it both easier and more secure to use.
+        </p>
+        
+        <h3>Installing GrapheneOS</h3>
+        <p>
+            First, you need to install GrapheneOS. You can follow the official <a href="https://grapheneos.org/install/web">Web installer</a> or go directly to the <a href="https://grapheneos.org/install">Install</a> page.
+        </p>
+        
+        <h3>Why Use GrapheneOS?</h3>
+        <p>
+            There are a handful of reasons people use GrapheneOS, which I categorize as follows:
+        </p>
+        <ul>
+            <li>Protecting your privacy and data from third-party apps.</li>
+            <li>De-googling your phone due to Google’s poor track record in handling personal data.</li>
+            <li>Security-sensitive fields, such as critical infrastructure or journalism.</li>
+            <li>Belief in the importance of keeping your personal data private.</li>
+        </ul>
+        
+        <h3>User Profiles</h3>
+        <p>
+            After installing GrapheneOS, I like to create multiple Android user profiles to maximize privacy and security. Although this is not exclusive to GrapheneOS, it allows me to isolate different aspects of my digital life. Here are the user profiles I typically create:
+        </p>
+        <ul>
+            <li><strong>Primary:</strong> Admin account for managing security settings and other profiles.</li>
+            <li><strong>Me:</strong> For work or volunteering. Avoid using real names for profiles.</li>
+            <li><strong>Private:</strong> For web surfing, learning, and socializing.</li>
+            <li><strong>Google Services:</strong> Contain Google-related apps to a single profile.</li>
+            <li><strong>Finance:</strong> Keep investments, banking, and billing info separate from everything else.</li>
+            <li><strong>Guest:</strong> For allowing others to use your device without compromising security.</li>
+        </ul>
+        <p>
+            To enable multiple users, go to <em>Settings &gt; System &gt; Multiple Users &gt; Allow multiple users</em>.
+        </p>
+        
+        <h3>Deleting User Profiles</h3>
+        <p>
+            Deleting profiles is useful for privacy, especially when traveling to countries with authoritarian governments. If you're in a sensitive field, such as journalism or activism, removing specific profiles beforehand could protect your privacy.
+        </p>
+
+        <h3>Network Settings</h3>
+        <p>
+            Navigate to <em>Settings &gt; Network &amp; Internet &gt; Internet &gt; Network Preferences</em> and disable "Turn on Wi-Fi automatically" and "Notify for public networks" to avoid rogue access points. For additional security, change your hotspot name and ensure no personal information is included. Choose a strong but accessible password.
+        </p>
+
+        <h3>Connected Devices/Bluetooth</h3>
+        <p>
+            In <em>Connected Devices</em>, change your device name to something non-identifiable. While GrapheneOS disables Wi-Fi automatically, you should also manually turn off Bluetooth and NFC when not in use.
+        </p>
+
+        <h3>Notifications & Battery</h3>
+        <p>
+            I turn off sensitive notifications so they don’t appear on the lock screen. For better battery management, enable battery percentage display.
+        </p>
+
+        <h3>Storage Scopes</h3>
+        <p>
+            One of the best GrapheneOS features is Storage Scopes, which allows each application to have its own folder. This feature sandbox apps, preventing them from accessing unnecessary data.
+        </p>
+
+        <h3>Privacy and Security</h3>
+        <p>
+            Turn off sensors permissions for apps by default, camera and microphone access, and show clipboard access for better privacy. Disabling "Show password" adds another layer of security.
+        </p>
+
+        <h3>PIN or Biometrics?</h3>
+        <p>
+            There’s debate about which is better, but I find the risk of people stealing my password through shoulder surfing greater than the risk of being forced to use biometrics.
+        </p>
+
+        <h3>Changing Quick Settings</h3>
+        <p>
+            For convenience, I like to have camera and microphone access toggles in Quick Settings. This provides peace of mind during sensitive events, such as work meetings or legal discussions.
+        </p>
+
+        <h3>Installing Applications</h3>
+        <p>
+            While F-Droid is popular, I prefer the <a href="https://github.com/NeoApplications/Neo-Store">NEO Store</a> for its security features and cleaner interface. For downloading Google Play apps anonymously, I use the <a href="https://auroraoss.com/">Aurora Store</a>, though it sometimes has issues.
+        </p>
+
+        <h3>Google Play Services</h3>
+        <p>
+            For certain apps, you’ll need to sandbox Google Play Services. To do this, go to <em>Apps &gt; Install Google Play Services</em>.
+        </p>
+
+        <h3>Other Thoughts</h3>
+        <p>
+            I was taught to use browsers like <a href="https://github.com/GrapheneOS/Vanadium">Vanadium</a> without app installation permissions. To disable Vanadium’s app installation capabilities, go to <em>Apps &gt; Vanadium &gt; Install Unknown Apps</em> and toggle it off. I use <a href="https://f-droid.org/en/packages/com.privacybrowser.android/">Privacy Browser</a> to download apps instead.
+        </p>
+
+        <p>
+            I'm glad I chose this as my first personal project. It has taught me how to use devices more securely and has allowed me to help others improve their digital privacy.
+        </p>
+    </div>
+</div>
+
+  </main>
+
+  <footer>
+            <button onclick="redirectToYouTube()" style="background:none;border:none;color:#000;text-decoration:underline;cursor:pointer;">
+                Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.
+            </button>
+        </footer>
+  <script>
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/watch?v=0hG-2tQtdlE";
+        }
+    </script>
+
+</body>
+</html>
