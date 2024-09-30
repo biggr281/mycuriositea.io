@@ -3,7 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #A1C0BB; /* Softer background color for the entire page */
+  background: url('https://raw.githubusercontent.com/biggr281/mycuriositea.io/main/teabackground.jpeg'); /* URL of the repeating background image */
+  background-size: 400px 400px; /* Adjust to control the size of each repeated block */
 }
 
 /* Header and Navigation */
@@ -17,6 +18,24 @@ header {
 }
 nav {
   margin: 20px 0;
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: center; /* Center align the navigation links */
+}
+nav a {
+  color: #A1C0BB; /* Light greenish color for all links */
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 30px; /* Increased margin for more spacing */
+  padding: 10px 0; /* Add padding for better click area */
+}
+
+nav a:visited {
+  color: #A1C0BB; /* Ensure visited links keep the same color */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #84672F; /* Dark golden color on hover for contrast */
 }
 
 a {
@@ -31,6 +50,14 @@ a:visited {
 a:hover {
   text-decoration: underline;
   color: #84672F; /* Dark golden color on hover for contrast */
+}
+/* Content Box */
+.content-box {
+  background-color: #2E413D; /* Dark green background */
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px 0; /* Margin for spacing */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Hero Section */
@@ -51,12 +78,12 @@ a:hover {
 /* Main Content and Cards */
 main {
   padding: 20px;
-  background-color: #f4f4f4; /* Light background for contrast with cards */
+  background-color: transparent; /* Light background for contrast with cards */
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #2E413D;
+  border: 1px solid #A1C0BB;
   border-radius: 5px;
   margin: 20px 0;
   padding: 20px;
@@ -69,10 +96,25 @@ main {
   border-left: 5px solid #84672F; /* Dark golden highlight on hover */
 }
 
+/* Sub-header styles */
+h2, h3 {
+  color: #84672F; /* Dark golden color for sub-headers */
+  background-color: rgba(46, 65, 61, 0.9); /* Optional semi-transparent background */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding for aesthetics */
+}
+/* Basic styles for paragraph elements */
+p {
+  color: #A1C0BB; /* Light greenish color for all paragraphs */
+}
+li {
+  color: #A1C0BB; /* Light greenish color for all paragraphs */
+}
+
 /* Footer */
 footer {
   background-color: #2E413D; /* Same dark green as the header */
-  color: #fff;
+  color: #A1C0BB;
   text-align: center;
   padding: 10px 20px;
   position: relative;
@@ -85,4 +127,12 @@ footer {
 footer p {
   margin: 0;
   padding: 10px;
+}
+footer a {
+  color: #A1C0BB; /* Ensure footer links are the same light greenish color */
+  text-decoration: none; /* No underline for footer links */
+}
+footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #84672F; /* Dark golden color on hover */
 }
