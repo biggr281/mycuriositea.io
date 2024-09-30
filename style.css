@@ -16,22 +16,21 @@ header {
   box-sizing: border-box;
 }
 
-nav {
-  margin: 20px 0;
-}
-
-nav a {
-  color: #A1C0BB; /* Light greenish color for nav links */
-  margin: 0 15px;
+/* General link styles to apply across the website, including navigation */
+a {
+  color: #A1C0BB; /* Light greenish color for all links */
   text-decoration: none;
   font-weight: bold;
+  margin: 0 15px;
 }
-nav a:hover {
+
+a:hover {
   text-decoration: underline;
   color: #84672F; /* Dark golden color on hover for contrast */
 }
-nav a:visited {
-  color: #A1C0BB; /* Keep the same color after clicking */
+
+a:visited {
+  color: #A1C0BB; /* Ensure visited links keep the same color */
 }
 
 /* Hero Section */
