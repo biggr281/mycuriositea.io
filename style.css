@@ -26,10 +26,12 @@ nav a {
   text-decoration: none;
   font-weight: bold;
 }
-
 nav a:hover {
   text-decoration: underline;
   color: #84672F; /* Dark golden color on hover for contrast */
+}
+nav a:visited {
+  color: #A1C0BB; /* Keep the same color after clicking */
 }
 
 /* Hero Section */
@@ -84,4 +86,7 @@ footer {
 footer p {
   margin: 0;
   padding: 10px;
+}
+a:visited {
+  color: inherit; /* Ensures the link color stays the same as defined */
 }
