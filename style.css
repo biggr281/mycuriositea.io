@@ -33,6 +33,7 @@ nav {
   margin: 20px 0;
   display: flex; /* Use flexbox for horizontal layout */
   justify-content: center; /* Center align the navigation links */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 nav a {
@@ -164,5 +165,17 @@ footer a:hover {
   text-decoration: underline; /* Underline on hover */
   color: #84672F; /* Dark golden color on hover */
 }
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column; /* Stack navigation items vertically */
+  }
 
+  .card {
+    margin: 10px; /* Reduce margin for smaller screens */
+    width: auto; /* Allow cards to take full width */
+  }
 
+  h1, h2, h3 {
+    font-size: smaller; /* Adjust font sizes for mobile */
+  }
+}
