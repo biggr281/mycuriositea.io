@@ -179,3 +179,13 @@ footer a:hover {
     font-size: smaller; /* Adjust font sizes for mobile */
   }
 }
+pre code {
+  background-color: #2E413D; /* Dark green background */
+  color: #84672F; /* Light golden color for text */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners to match the card design */
+  display: block;
+  white-space: pre-wrap; /* Allow wrapping for better readability on small screens */
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity &amp; Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity &amp; Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="content-box">
+        <h2>How I Set Up My Virtual Machines</h2>
+        <p>
+          When I first started setting up my virtual machines (VMs) for cybersecurity studies, I thought I had everything figured out—until I broke something by tinkering too much. Only then did I learn about the power of snapshots! In this blog post, I'll walk you through the steps and resources I use to create my VMs the way I like them.
+        </p>
+
+        <h3>Step 1: Downloading Ubuntu</h3>
+        <p>
+          I prefer Ubuntu for its balance of usability and powerful tools. You can download the latest Ubuntu ISO file <a href="https://ubuntu.com/download/desktop">here</a>.
+        </p>
+
+        <h3>Step 2: Setting Up VMware</h3>
+        <p>
+          Setting up VMware recently has been tricky without creating an account. Luckily, I found a direct link to the VMware Player installer <a href="https://web.archive.org/web/20240216155830/https://download3.vmware.com/software/WKST-PLAYER-1750/VMware-player-full-17.5.0-22583795.exe">here</a> (thanks to the Reddit community <a href="https://www.reddit.com/r/vmware/comments/167f0i7/vmware_workstation_pro_17_windows_where_to_download/">here</a>).
+        </p>
+
+        <h3>Step 3: Installing Ubuntu in VMware</h3>
+        <p>
+          Installing Ubuntu in VMware is straightforward. If you need a video guide, this tutorial covers it well: <a href="https://www.youtube.com/watch?v=qCe8WfYFQ8I">How to Install Ubuntu 24.04 LTS on VMware</a>.
+        </p>
+
+        <h3>Step 4: Configuring Ubuntu in the Terminal</h3>
+        <p>
+          Once Ubuntu is installed, I start by updating the package list and upgrading the system. Here's how:
+        </p>
+        <pre><code>
+        $ sudo apt-get update
+        $ sudo apt-get upgrade
+        </code></pre>
+        <p>This ensures all packages are up to date.</p>
+
+        <h3>Step 5: Installing Essential Tools</h3>
+        <p>
+          I also install some basic tools to enhance the setup. For example, I like using <strong>Gnome Tweaks</strong> for GUI management:
+        </p>
+        <pre><code>
+        $ sudo apt-get install gnome-tweaks
+        </code></pre>
+
+        <p>
+          I also install <strong>Brave</strong> for privacy-focused browsing:
+        </p>
+        <pre><code>
+        $ sudo apt install curl
+        $ sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        $ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+        $ sudo apt update
+        $ sudo apt install brave-browser
+        </code></pre>
+
+        <p>For a lightweight text editor, I install <strong>Gedit</strong>:</p>
+        <pre><code>
+        $ sudo apt-get install gedit
+        </code></pre>
+
+        <h3>Step 6: Setting Up Development Tools</h3>
+        <p>
+          Next, I set up <strong>Visual Studio Code</strong> for coding. You can download the .deb package <a href="https://code.visualstudio.com/docs/?dv=linux64_deb">here</a>, then install it:
+        </p>
+        <pre><code>
+        $ sudo dpkg -i code_1.93.1-1726079302_amd64.deb
+        </code></pre>
+
+        <p>I also install <strong>Git</strong> for version control:</p>
+        <pre><code>
+        $ sudo apt install git
+        </code></pre>
+
+        <h3>Step 7: Installing AppImages</h3>
+        <p>
+          I prefer to use <strong>Flameshot</strong> for screenshots and <strong>Obsidian</strong> for note-taking. Both of these tools come as AppImages. After downloading, make them executable by right-clicking the file, selecting "Properties," and checking "Allow executing as program."
+        </p>
+        <p>
+          To ensure they run, install the necessary support:
+        </p>
+        <pre><code>
+        $ sudo apt install libfuse2
+        </code></pre>
+
+        <h3>Final Thoughts</h3>
+        <p>
+          This setup is my basic starting point for working with virtual machines. There are always more tools to explore, but this configuration gives me a solid foundation for work and learning. Plus, I never forget to take snapshots anymore!
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.youtube.com/watch?v=0hG-2tQtdlE">Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</a>
+  </footer>
+</body>
+</html>
