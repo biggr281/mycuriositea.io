@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity & Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity & Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="content-box">
+        <h2>Setting Up My Bash</h2>
+        <p>
+          Today, I'm working on setting up my bash configuration. While I don’t have much experience, I'm determined to work smarter, not harder! Though part of me wants to stick with the default bash, some commands are just too long. Here's what I've learned so far.
+        </p>
+
+        <h3>Backing Up the Original Bash</h3>
+        <p>
+          Before making any changes, it's important to back up the original bash configuration in case something goes wrong. Here's how you can do that:
+        </p>
+        <pre><code>
+        $ which bash
+        $ sudo cp /bin/bash ~/bash-backup
+        $ ls -l ~/bash-backup
+        </code></pre>
+        <p>
+          If something goes wrong, you can restore the original bash with this command:
+        </p>
+        <pre><code>
+        $ sudo cp ~/bash-backup /bin/bash
+        </code></pre>
+
+        <h3>Common Aliases</h3>
+        <p>
+          I’ve set up some common aliases to simplify my workflow. These save time by shortening frequently used commands:
+        </p>
+        <pre><code>
+        $ alias q='exit'
+        $ alias c='clear'
+        $ alias h='history'
+        $ alias cs='clear; ls'
+        $ alias p='cat'
+        $ alias pd='pwd'
+        $ alias lsa='ls -a'
+        $ alias lsl='ls -l'
+        $ alias t='time'
+        $ alias k='kill'
+        </code></pre>
+
+        <h3>Directory Navigation Aliases</h3>
+        <p>
+          For easier directory navigation, I've set up these aliases:
+        </p>
+        <pre><code>
+        $ alias home='cd ~'
+        $ alias root='cd /'
+        $ alias dtop='cd ~/Desktop'
+        $ alias dbox='cd ~/Dropbox'
+        $ alias cppprojects='cd ~/Dropbox/Projects/C++Projects'
+        $ alias pythonprojects='cd ~/Dropbox/Projects/PythonProjects'
+        $ alias gdrive='cd ~/Google\\ Drive'
+        </code></pre>
+
+        <h3>Git Shortcuts</h3>
+        <p>
+          Git is essential for version control, and these aliases make working with git easier:
+        </p>
+        <pre><code>
+        $ alias g='git'
+        $ alias st='git status'
+        $ alias com='git commit -m'
+        $ alias clone='git clone'
+        $ alias lg='git log'
+        $ alias u='git add -u'
+        $ alias all='git add .'
+        </code></pre>
+
+        <h3>Additional Aliases</h3>
+        <p>
+          Here are a couple of additional handy shortcuts:
+        </p>
+        <pre><code>
+        $ alias myec2box='ssh <insert_server_here>'
+        $ alias pythonserver='python -m SimpleHTTPServer 8000'
+        </code></pre>
+
+        <h3>Final Thoughts</h3>
+        <p>
+          These aliases streamline my workflow and reduce the errors caused by longer commands. I've also learned the importance of keeping a digital and printed copy of useful shortcuts. For now, this is a solid start, but I plan to expand my setup as I learn more!
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.youtube.com/watch?v=0hG-2tQtdlE">Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</a>
+  </footer>
+</body>
+</html>
