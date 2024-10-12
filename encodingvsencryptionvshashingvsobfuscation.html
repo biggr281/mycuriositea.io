@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity & Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity & Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="content-box">
+        <h2>The Difference Between Encoding, Encryption, Hashing, and Obfuscation</h2>
+        <p>
+          Understanding the distinction between encoding, encryption, hashing, and obfuscation is essential in cybersecurity. Each serves a different purpose and has its unique functionality. In this blog post, I will walk you through the main differences between these concepts and when to use them.
+        </p>
+
+        <h3>Encoding</h3>
+        <p>
+          <strong>Encoding</strong> transforms data into another format using a publicly available scheme, allowing it to be easily reversed. Encoding does not require a key; the only thing needed to decode it is the algorithm that was used for the encoding process.
+        </p>
+        <p><strong>Examples:</strong> ASCII, Unicode, URL Encoding, Base64</p>
+
+        <h3>Encryption</h3>
+        <p>
+          <strong>Encryption</strong> is used to secure data, ensuring that only specific individuals can access the original information. Encryption transforms data into a format that can only be reversed using a key, which is kept secret. This method is essential for confidentiality, as the ciphertext, algorithm, and key are all required to decrypt the data back to plaintext.
+        </p>
+        <p><strong>Examples:</strong> AES, Blowfish, RSA</p>
+
+        <h3>Hashing</h3>
+        <p>
+          <strong>Hashing</strong> is mainly used to validate the integrity of data. Hashing converts arbitrary input into fixed-length strings. It has specific attributes, such as ensuring the same input always produces the same output and any modification to the input will drastically change the hash.
+        </p>
+        <p>
+          Hashing is commonly used with authentication. A hash can be signed with a sender’s private key, and the recipient can validate the message by comparing the hash of the message with the signed hash.
+        </p>
+        <p><strong>Examples:</strong> SHA-3, MD5 (obsolete)</p>
+
+        <h3>Obfuscation</h3>
+        <p>
+          <strong>Obfuscation</strong> is a technique used to make something harder to understand. While it is not a strong control like encryption, it is useful for preventing reverse engineering or copying. Obfuscation does not necessarily prevent access but acts as an obstacle, making it harder for attackers to understand what they are looking at.
+        </p>
+        <p><strong>Examples:</strong> Javascript Obfuscator, ProGuard</p>
+
+        <h3>Summary</h3>
+        <ul>
+          <li><strong>Encoding</strong> maintains data usability and can be reversed using the same algorithm. No key is required.</li>
+          <li><strong>Encryption</strong> ensures confidentiality and requires a key to return the encrypted data to plaintext.</li>
+          <li><strong>Hashing</strong> validates data integrity by detecting modifications through noticeable changes in the hash.</li>
+          <li><strong>Obfuscation</strong> makes something harder to understand and is often used to protect code from reverse engineering.</li>
+        </ul>
+
+        <h3>Final Notes</h3>
+        <p>
+          The main difference between obfuscation and encryption is that obfuscation is used to make data harder for humans to understand while still consumable by computers. Encryption, on the other hand, makes data unreadable to both humans and computers without a key.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.youtube.com/watch?v=0hG-2tQtdlE">Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</a>
+  </footer>
+</body>
+</html>
