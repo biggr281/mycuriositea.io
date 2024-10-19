@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity & Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity & Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="content-box">
+        <h2>Launching and Managing EC2 Instances</h2>
+
+        <h3>Launching EC2 Instance</h3>
+        <p>Setting up an EC2 instance is simple using the AWS console. Follow these steps to get started.</p>
+        <h4>1. Click on “Launch Instances”</h4>
+        <p>Go to the AWS EC2 Dashboard and click "Launch Instances".</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html" target="_blank">Learn more about launching instances</a>.</p>
+        
+        <h4>2. Input the Instance Name</h4>
+        <p>Provide a name for your instance for easy identification later.</p>
+
+        <h4>3. Choose Operating System</h4>
+        <p>Select an Amazon Machine Image (AMI) for the instance, such as Amazon Linux 2 or Ubuntu.</p>
+
+        <h4>4. Select Instance Type</h4>
+        <p>For free-tier users, select the <code>t2.micro</code> instance type.</p>
+        <p><a href="https://aws.amazon.com/ec2/instance-types/" target="_blank">Instance type pricing and details</a>.</p>
+
+        <h4>5. Key Pair Configuration</h4>
+        <p>Choose or create a key pair for secure SSH access to your instance.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" target="_blank">AWS Key Pair documentation</a>.</p>
+
+        <h4>6. Network Settings</h4>
+        <p>Set up your security group to allow necessary traffic (e.g., SSH, HTTP).</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html" target="_blank">Security Groups</a>.</p>
+
+        <h4>7. Launch Instance</h4>
+        <p>Once all settings are configured, click "Launch" to start the instance.</p>
+
+        <h4>8. SSH Access to EC2 Instance</h4>
+        <p>After launching the instance, connect via SSH:</p>
+        <pre><code>
+cd Downloads
+chmod 0400 DemoKeyPair.pem
+ssh -i DemoKeyPair.pem ec2-user@&lt;Your_Public_IPv4&gt;
+        </code></pre>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html" target="_blank">Connecting via SSH</a>.</p>
+
+        <h4>9. Using EC2 Connect</h4>
+        <p>Alternatively, use EC2 Connect directly from the AWS Console without needing SSH keys.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html" target="_blank">EC2 Instance Connect Guide</a>.</p>
+
+        <h3>Changing EC2 Instance Type</h3>
+        <p>If your workload grows, you might need to resize your instance.</p>
+
+        <h4>Ensure EBS Backing</h4>
+        <p>Resizing is possible only for instances with Elastic Block Store (EBS).</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html" target="_blank">EBS-backed instances</a>.</p>
+
+        <h4>Steps to Change Instance Type</h4>
+        <ol>
+          <li>Stop the instance.</li>
+          <li>Right-click the instance, go to <strong>Instance Settings</strong> → <strong>Change Instance Type</strong>.</li>
+          <li>Select a new instance type (e.g., <code>t2.small</code>).</li>
+          <li>Restart the instance.</li>
+        </ol>
+
+        <h4>Check Available Memory and Disk Space</h4>
+        <p>Use the command below to check available space:</p>
+        <pre><code>$ free -m</code></pre>
+
+        <h3>Enhanced Networking</h3>
+        <p>Enhanced Networking improves network performance by reducing latency and increasing throughput.</p>
+
+        <h4>Elastic Network Adapter (ENA)</h4>
+        <p>Supports up to 100 Gbps for newer instances.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html" target="_blank">ENA Overview</a>.</p>
+
+        <h4>Elastic Fabric Adapter (EFA)</h4>
+        <p>For High-Performance Computing (HPC), EFA is ideal for low-latency communication.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html" target="_blank">EFA Overview</a>.</p>
+
+        <h4>Verify ENA Installation</h4>
+        <p>To verify if ENA is installed, use:</p>
+        <pre><code>
+$ modinfo ena
+$ ethtool -i ens5
+        </code></pre>
+
+        <h3>EC2 Placement Groups</h3>
+        <p>Use placement groups to control the physical placement of instances across underlying hardware.</p>
+
+        <h4>Cluster Placement Group</h4>
+        <p>Low-latency, high-throughput placement within a single AZ. Ideal for applications like HPC.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank">Cluster Placement Groups</a>.</p>
+
+        <h4>Spread Placement Group</h4>
+        <p>Spread instances across distinct hardware to reduce risk of simultaneous failure.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-spread" target="_blank">Spread Placement Groups</a>.</p>
+
+        <h4>Partition Placement Group</h4>
+        <p>Partition instances across different racks within an AZ. Ideal for workloads like Hadoop or Cassandra.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-partition" target="_blank">Partition Placement Groups</a>.</p>
+
+        <h3>EC2 Shutdown Behavior & Termination Protection</h3>
+
+        <h4>Shutdown Behavior</h4>
+        <p>Choose between <strong>Stop</strong> (default) and <strong>Terminate</strong> when shutting down an instance.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html#lifecycle-difference" target="_blank">Shutdown Behavior Documentation</a>.</p>
+
+        <h4>Termination Protection</h4>
+        <p>Enable termination protection to prevent accidental instance deletion.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#termination-protection" target="_blank">Termination Protection Guide</a>.</p>
+
+        <h3>Troubleshooting EC2 Launch Issues</h3>
+
+        <h4>InstanceLimitExceeded</h4>
+        <p>This error occurs when you have reached the vCPU limit for a region.</p>
+        <p><strong>Resolution:</strong> Request a limit increase from AWS or launch the instance in a different region.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html" target="_blank">Resolving InstanceLimitExceeded</a>.</p>
+
+        <h4>InsufficientInstanceCapacity</h4>
+        <p>Occurs when AWS does not have enough available capacity in the selected AZ for your instance.</p>
+        <p><strong>Resolution:</strong> Try launching the instance in a different AZ, or wait a few minutes before retrying.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html#troubleshooting-launch-capacity" target="_blank">Capacity Troubleshooting</a>.</p>
+
+        <h4>InstanceTerminatesImmediately</h4>
+        <p>If your instance terminates immediately, it might be due to issues such as EBS snapshot corruption or insufficient permissions for encrypted root volumes.</p>
+        <p><strong>Resolution:</strong> Review the state and reason in the EC2 console, under “State Transition Reason.”</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-terminate-immediately.html" target="_blank">Instance Immediate Termination</a>.</p>
+
+        <h3>Troubleshooting EC2 SSH Issues</h3>
+
+        <h4>SSH Private Key Permissions</h4>
+        <p>Make sure the `.pem` file has the correct permissions, or you will encounter the error “Unprotected private key file.”</p>
+        <pre><code>
+chmod 0400 your-key.pem
+        </code></pre>
+
+        <h4>Incorrect Username</h4>
+        <p>If you use the wrong username, you might get permission errors. Common usernames are:</p>
+        <ul>
+          <li><code>ec2-user</code> for Amazon Linux</li>
+          <li><code>ubuntu</code> for Ubuntu instances</li>
+        </ul>
+
+        <h4>SG or NACL Misconfiguration</h4>
+        <p>If you are unable to connect, ensure the Security Group allows inbound traffic on port 22 and the Network ACL allows it as well.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html" target="_blank">Fix SSH Access</a>.</p>
+
+        <h3>EC2 Instance Purchasing Options</h3>
+
+        <h4>On-Demand Instances</h4>
+        <p>Pay-as-you-go pricing model, where you are billed per second for Linux and Windows instances after the first minute.</p>
+        <p><a href="https://aws.amazon.com/ec2/pricing/on-demand/" target="_blank">On-Demand Pricing</a>.</p>
+
+        <h4>Reserved Instances</h4>
+        <p>Reserved for long-term workloads, offering up to 72% discounts for 1 or 3-year commitments.</p>
+        <p><a href="https://aws.amazon.com/ec2/pricing/reserved-instances/" target="_blank">Reserved Instances</a>.</p>
+
+        <h4>Spot Instances</h4>
+        <p>Spot Instances offer up to 90% savings for workloads that are fault-tolerant. Instances can be terminated at any time if demand increases.</p>
+        <p><a href="https://aws.amazon.com/ec2/spot/" target="_blank">Spot Instances</a>.</p>
+
+        <h4>Dedicated Hosts</h4>
+        <p>Dedicated Hosts provide full physical server control, ideal for regulatory compliance and custom licensing requirements.</p>
+        <p><a href="https://aws.amazon.com/ec2/dedicated-hosts/" target="_blank">Dedicated Hosts</a>.</p>
+
+        <h3>Spot Instances & Spot Fleet</h3>
+
+        <h4>Spot Instances</h4>
+        <p>Spot instances are low-cost instances that may be interrupted by AWS if the current price exceeds your maximum bid.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html" target="_blank">Spot Instances Guide</a>.</p>
+
+        <h4>Spot Fleet</h4>
+        <p>A Spot Fleet is a combination of Spot and On-Demand instances that AWS automatically provisions based on your target capacity.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html" target="_blank">Spot Fleet Documentation</a>.</p>
+
+        <h3>EC2 Instance Launch Types</h3>
+        <ul>
+          <li><strong>On-Demand:</strong> Pay-as-you-go with no long-term commitments.</li>
+          <li><strong>Reserved:</strong> Discounted instances for long-term workloads.</li>
+          <li><strong>Spot:</strong> Extremely low-cost but unreliable instances.</li>
+          <li><strong>Dedicated Hosts:</strong> Full control over physical servers for compliance.</li>
+        </ul>
+
+        <h3>Burstable Instances</h3>
+
+        <h4>Burst Credits</h4>
+        <p>Burstable instances like T2 and T3 allow occasional CPU bursts. When bursting, instances use “burst credits,” which accumulate over time.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html" target="_blank">Burstable Instances Guide</a>.</p>
+
+        <h4>T2/T3 Unlimited</h4>
+        <p>T2 and T3 Unlimited allow instances to burst beyond their allocated credits, though overuse incurs additional charges.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html" target="_blank">T2/T3 Unlimited</a>.</p>
+
+        <h3>Elastic IPs</h3>
+
+        <h4>Elastic IP Overview</h4>
+        <p>An Elastic IP (EIP) is a static, public IPv4 address that you can associate with an EC2 instance. You can move EIPs between instances as needed.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html" target="_blank">Elastic IP Guide</a>.</p>
+
+        <h4>Elastic IP Limits</h4>
+        <p>You are limited to 5 Elastic IPs per region by default, but you can request an increase if necessary.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-allocate-address" target="_blank">Requesting EIP Limit Increases</a>.</p>
+
+        <h3>CloudWatch Metrics for EC2</h3>
+
+        <h4>Basic Monitoring</h4>
+        <p>Basic monitoring is enabled by default and collects metrics in 5-minute intervals.</p>
+        <p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ec2-metrics-specific.html" target="_blank">CloudWatch Metrics</a>.</p>
+
+        <h4>Detailed Monitoring</h4>
+        <p>Detailed monitoring collects metrics at 1-minute intervals and provides more granular data.</p>
+        <p><a href="https://aws.amazon.com/cloudwatch/pricing/" target="_blank">Detailed Monitoring</a>.</p>
+
+        <h3>CloudWatch - Unified CloudWatch Agent</h3>
+
+        <h4>Unified CloudWatch Agent</h4>
+        <p>The Unified CloudWatch Agent allows you to collect custom metrics, such as memory usage and disk I/O, in addition to the default system metrics.</p>
+        <p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html" target="_blank">Unified CloudWatch Agent Overview</a>.</p>
+
+        <h3>Unified CloudWatch Agent Step-by-Step Guide</h3>
+
+        <h4>Create IAM Role</h4>
+        <p>Create an IAM Role with the <code>CloudWatchAgentServerPolicy</code> attached to enable the agent to send metrics to CloudWatch.</p>
+        <p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-iam-roles-for-cloudwatch-agent.html" target="_blank">IAM Role Setup</a>.</p>
+
+        <h4>Install CloudWatch Agent</h4>
+        <pre><code>
+sudo yum install amazon-cloudwatch-agent
+        </code></pre>
+
+        <h4>Configure the Agent</h4>
+        <pre><code>
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+        </code></pre>
+
+        <h4>Start the Agent</h4>
+        <pre><code>
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+        </code></pre>
+
+        <h3>EC2 Instance Status Checks</h3>
+
+        <h4>System Status Checks</h4>
+        <p>Monitors AWS infrastructure (e.g., networking, hardware) for issues.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html" target="_blank">System Status Check Documentation</a>.</p>
+
+        <h4>Instance Status Checks</h4>
+        <p>Monitors your instance’s internal configurations (e.g., memory, kernel).</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html#instance-status-checks" target="_blank">Instance Status Checks</a>.</p>
+
+        <h3>EC2 Hibernate Hands-On</h3>
+
+        <h4>Enable Hibernate</h4>
+        <p>To enable hibernation, select the “Hibernation” option during instance creation and ensure that the root EBS volume is encrypted.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-instances.html" target="_blank">Enabling Hibernate</a>.</p>
+
+        <h3>EC2 Cleanup</h3>
+
+        <h4>Delete Unused Instances</h4>
+        <p>Terminate EC2 instances you no longer need to avoid incurring unnecessary costs.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html" target="_blank">Terminating Instances</a>.</p>
+
+        <h4>Monitor and Remove Unused Elastic IPs</h4>
+        <p>Elastic IPs that are not attached to running instances are billed. Be sure to release unused Elastic IPs.</p>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#releasing-elastic-ip-addresses" target="_blank">Releasing Elastic IPs</a>.</p> 
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.youtube.com/watch?v=0hG-2tQtdlE">Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</a>
+  </footer>
+</body>
+</html>

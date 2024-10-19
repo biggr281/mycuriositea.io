@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Biggar | Cybersecurity & Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero"> 
+      <h1>William Biggar | Cybersecurity & Projects</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="content-box">
+        <h2>AMI Overview</h2>
+        <p>An AMI (Amazon Machine Image) is a customized image used to launch EC2 instances, making it faster to configure instances with pre-packaged software, configurations, and operating systems.</p>
+
+        <h3>Key Features of AMI</h3>
+        <ul>
+          <li>Customizations of an EC2 instance, including software, configuration, and OS.</li>
+          <li>Faster boot and configuration times since everything is pre-packaged.</li>
+          <li>AMIs are region-specific but can be copied across regions.</li>
+        </ul>
+
+        <h4>EC2 Instances Can Launch From:</h4>
+        <ul>
+          <li><strong>Public AMI:</strong> Provided by AWS.</li>
+          <li><strong>Personal AMI:</strong> Created and maintained by the user.</li>
+          <li><strong>AWS Marketplace AMI:</strong> AMIs created by third parties and available for purchase.</li>
+        </ul>
+
+        <h3>AMI Process (from an EC2 Instance)</h3>
+        <p>To create an AMI from an existing EC2 instance:</p>
+        <ol>
+          <li>Start the EC2 instance and apply the required customizations.</li>
+          <li>Stop the instance to ensure data integrity.</li>
+          <li>Build the AMI, which also creates EBS snapshots.</li>
+          <li>Launch new instances from this AMI.</li>
+        </ol>
+
+        <h3>AMI Setup</h3>
+        <p>To set up and create an AMI:</p>
+        <h4>Step-by-Step Guide</h4>
+        <ol>
+          <li>Launch the instance with the following user data script:</li>
+        </ol>
+        <pre><code>
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+        </code></pre>
+        <ol start="2">
+          <li>Right-click on the instance, select "Image and Templates", and click "Create Image".</li>
+          <li>Go to the AMIs section to launch an instance from your newly created AMI.</li>
+        </ol>
+
+        <h3>User Data Example</h3>
+        <pre><code>
+#!/bin/bash
+# Script to be added as user data
+echo "<p>Hello World from $(hostname -f)</p>" > /var/www/html/index.html
+        </code></pre>
+
+        <h3>AMI No Reboot Option</h3>
+        <p>The <strong>No Reboot</strong> option allows the user to create an AMI without shutting down the instance. By default, this is not selected, and AWS shuts down the instance to maintain file system integrity while creating the AMI.</p>
+
+        <h3>AWS Backup Plans to Create an AMI</h3>
+        <p>AWS Backup doesn’t reboot instances when taking EBS snapshots. However, to ensure the integrity of the file system when creating an AMI, it's best to use the reboot parameter (e.g., via EventBridge + Lambda + CreateImage API).</p>
+        <p>To enable the <strong>No Reboot</strong> option:</p>
+        <ol>
+          <li>Right-click the instance, choose "Image and Templates", and click "Create Image".</li>
+          <li>Select the "No Reboot" checkbox to enable it.</li>
+        </ol>
+
+        <h3>EC2 Instance Migration Using AMIs</h3>
+        <p>You can use AMIs to migrate instances across regions or subnets.</p>
+        <ol>
+          <li>Select the desired AMI.</li>
+          <li>Choose the instance type.</li>
+          <li>Configure the instance, including subnet selection for the target region.</li>
+        </ol>
+
+        <h3>Cross-Account AMI Sharing</h3>
+        <p>You can share AMIs with other AWS accounts. Sharing an AMI does not transfer ownership; the original user remains the owner.</p>
+
+        <h4>Restrictions on Sharing AMIs</h4>
+        <ul>
+          <li>You can share AMIs with unencrypted volumes or those encrypted with customer-managed keys.</li>
+          <li>If the AMI has encrypted volumes, the user must also share the associated customer-managed keys.</li>
+        </ul>
+
+        <h3>Cross-Account AMI Copy</h3>
+        <p>If you copy an AMI that has been shared with your account, you become the owner of the copied AMI. The owner of the original AMI must grant read permissions for the underlying EBS snapshot, and if the snapshot is encrypted, the encryption keys must also be shared.</p>
+
+        <h3>EC2 Image Builder</h3>
+        <p>The EC2 Image Builder is a free service used to automate the creation, maintenance, validation, and testing of EC2 AMIs and container images. You only pay for the underlying resources used in the process.</p>
+
+        <h4>Step-by-Step EC2 Image Builder</h4>
+        <ol>
+          <li>Open the EC2 Image Builder in the AWS Console.</li>
+          <li>Provide a name, description, and schedule for the build.</li>
+          <li>Choose a recipe (either AMI or Docker).</li>
+          <li>Specify the source image, version, OS, and required components.</li>
+          <li>Select the tests to validate the image.</li>
+        </ol>
+
+        <h3>AMI in Production</h3>
+        <p>It is possible to enforce a policy where users can only launch EC2 instances from pre-approved AMIs. You can combine this with AWS Config to detect non-compliant instances.</p>
+
+        <h3>AMI Cleanup</h3>
+        <p>To clean up unused AMIs, you should deregister the AMIs and delete the associated EBS snapshots.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.youtube.com/watch?v=0hG-2tQtdlE">Thank you to my friends and colleagues. Clyde, David, Kyle, and Rafael.</a>
+  </footer>
+</body>
+</html>
